@@ -1,4 +1,3 @@
-
 // function to add the cardList to html
 const addCards = (items) => {
 items.forEach(item => {
@@ -15,13 +14,13 @@ items.forEach(item => {
 }
 
 const formSubmitted = () => {
-let formData = {};
-formData.title = $('#title').val();
-formData.subTitle = $('#subTitle').val();
-formData.path = $('#path').val();
-formData.description = $('#description').val();
-console.log(formData);
-postCat(formData);
+   let formData = {};
+   formData.title = $('#title').val();
+   formData.subTitle = $('#subTitle').val();
+   formData.path = $('#path').val();
+   formData.description = $('#description').val();
+   console.log(formData);
+   postCat(formData);
 }
 
 function postCat(cat){
@@ -33,7 +32,6 @@ function postCat(cat){
          if(result.statusCode === 201){
             alert('Cat post Successful');
          }
-   
       }
    });
 }
@@ -42,16 +40,13 @@ function getAllCats(){
    $.get('/api/cats',(response)=>{
       if(response.statusCode === 200){
          addCards(response.data);
-
       }
-
-
    });
 }
 
 $(document).ready(function(){
-$('.materialboxed').materialbox();
-$('#formSubmit').click(()=>{
+   $('.materialboxed').materialbox();
+   $('#formSubmit').click(()=>{
    formSubmitted();
 });
 $('.modal').modal();
